@@ -1,0 +1,96 @@
+/* style.qss */
+
+/* General */
+QWidget {
+    background-color: #f4f6f9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: #333;  /* Un color más oscuro para el texto */
+}
+
+/* Botones */
+QPushButton {
+    background-color: #3A7BD5;
+    color: white;
+    border: 1px solid #3A7BD5;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 6px 3px;
+    border-radius: 6px;
+}
+
+QPushButton:disabled {
+    background-color: #b0bec5;
+    border: none;
+}
+
+/* Campos de texto */
+QLineEdit {
+    padding: 6px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background-color: #f7f9fc;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3A7BD5;
+    background-color: #ffffff;
+}
+
+/* Tablas */
+QTableView {
+    background-color: #ffffff;
+    border: 1px solid #dfe4ea;
+}
+
+QHeaderView::section {
+    background-color: #2A5470;
+    color: white;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+}
+
+/* Progress Bar */
+QProgressBar {
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #e0e0e0;
+}
+
+QProgressBar::chunk {
+    background-color: #3A7BD5;
+    width: 20px;
+}
+
+/* Diálogos */
+QDialog {
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+/* Áreas de texto */
+QTextEdit {
+    background-color: #fafafa;
+    border: 1px solid #dfe4ea;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+/* Tablas widget */
+QTableWidget {
+    background-color: white;
+    border: 1px solid #dfe4ea;
+    color: #333; 
+}
+
+QTableWidget::item {
+    padding: 6px;
+}
+
+QTableWidget::item:selected {
+    background-color: #88c9f9;
+    color: white;
+}
