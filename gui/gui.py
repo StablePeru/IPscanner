@@ -1,26 +1,27 @@
-# gui.py
-
+import os
 from PyQt5.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout, QHBoxLayout,
+    QWidget, QVBoxLayout, QHBoxLayout,
     QLabel, QLineEdit, QPushButton, QFileDialog, QProgressBar,
     QTableWidget, QTableWidgetItem, QMessageBox, QHeaderView, QDialog, QTextEdit
 )
 from PyQt5.QtCore import Qt, pyqtSignal, QObject, QThread
-from PyQt5.QtGui import QIcon
-import sys
-from scanner import Scanner
+from scanner.scanner import Scanner
+from utils.validators import validate_ip_input, validate_ports_input
 import csv
 import openpyxl
-import ipaddress
 import re
+import logging
+import ipaddress
+
+logger = logging.getLogger('ip_scanner')
 
 class IPTableWidgetItem(QTableWidgetItem):
     def __init__(self, ip, *args, **kwargs):
-        super().__init__(ip, *args, **kwargs)  # Establecer el texto del item
+        super().__init__(ip, *args, **kwargs)
         try:
             self.ip = ipaddress.ip_address(ip)
         except ValueError:
-            self.ip = None  # Manejar IPs inválidas si las hay
+            self.ip = None
 
     def __lt__(self, other):
         if isinstance(other, IPTableWidgetItem):
@@ -44,12 +45,15 @@ class Worker(QObject):
     def run_scan(self):
         hosts = self.scanner.scan_hosts(self.target, self.ports)
         total = len(hosts)
+        logger.info(f"Iniciando escaneo de {total} host(s).")
         for i, host in enumerate(hosts, 1):
             if self.stop_scan:
+                logger.info("Escaneo detenido por el usuario.")
                 break
             info = self.scanner.get_host_info(host)
             if info:
                 self.progress.emit(info)
+                logger.debug(f"Datos del host {host}: {info}")
             self.update_progress.emit(int((i / total) * 100))
         self.finished.emit()
 
@@ -85,7 +89,7 @@ class IPScannerGUI(QWidget):
 
     def init_ui(self):
         self.setWindowTitle("IP Scanner Profesional")
-        self.setGeometry(100, 100, 1200, 700)  # Aumentamos el ancho para acomodar la tabla
+        self.setGeometry(100, 100, 1200, 700)
 
         main_layout = QVBoxLayout()
 
@@ -113,10 +117,10 @@ class IPScannerGUI(QWidget):
         self.scan_button.clicked.connect(self.start_scan)
         self.export_button = QPushButton("Exportar Resultados")
         self.export_button.clicked.connect(self.export_results)
-        self.export_button.setEnabled(False)  # Deshabilitado inicialmente
+        self.export_button.setEnabled(False)
         self.stop_button = QPushButton("Detener Escaneo")
         self.stop_button.clicked.connect(self.stop_scan)
-        self.stop_button.setEnabled(False)  # Deshabilitado inicialmente
+        self.stop_button.setEnabled(False)
         button_layout.addWidget(self.scan_button)
         button_layout.addWidget(self.stop_button)
         button_layout.addWidget(self.export_button)
@@ -157,28 +161,30 @@ class IPScannerGUI(QWidget):
 
     def apply_styles(self):
         try:
-            with open("style.qss", "r") as f:
-                with open("style.qss", "r", encoding="utf-8") as f:
-                    self.setStyleSheet(f.read())
+            style_path = os.path.join(os.path.dirname(__file__), '../resources/style.qss')
+            with open(style_path, "r", encoding="utf-8") as f:
+                self.setStyleSheet(f.read())
         except FileNotFoundError:
             QMessageBox.warning(self, "Archivo de Estilos No Encontrado", "El archivo style.qss no se encontró. La aplicación usará estilos predeterminados.")
 
     def start_scan(self):
         target = self.ip_input.text().strip()
         ports = self.port_input.text().strip()
-        if not self.validate_ip_input(target):
+        if not validate_ip_input(target):
             QMessageBox.warning(self, "Entrada Inválida", "Por favor, ingresa una dirección IP o rango válido.")
+            logger.warning("Entrada de IP inválida.")
             return
-        if ports and not self.validate_ports_input(ports):
+        if ports and not validate_ports_input(ports):
             QMessageBox.warning(self, "Puertos Inválidos", "Por favor, ingresa puertos en un formato válido (Ej: 22-80,443).")
+            logger.warning("Entrada de puertos inválida.")
             return
         if not ports:
-            ports = '22-443'  # Puertos por defecto
+            ports = '22-443'
 
         self.scan_button.setEnabled(False)
         self.export_button.setEnabled(False)
         self.stop_button.setEnabled(True)
-        self.result_table.setRowCount(0)  # Limpiar la tabla
+        self.result_table.setRowCount(0)
         self.progress_bar.setValue(0)
 
         # Configurar el worker en un QThread separado
@@ -198,12 +204,6 @@ class IPScannerGUI(QWidget):
         self.thread.start()
 
     def update_results(self, data):
-        """
-        Añade una fila a la tabla con los datos del host escaneado.
-        """
-        # Depuración: Verificar los datos recibidos
-        print(f"Datos recibidos: {data}")
-
         row_position = self.result_table.rowCount()
         self.result_table.insertRow(row_position)
 
@@ -233,28 +233,19 @@ class IPScannerGUI(QWidget):
         self.result_table.setItem(row_position, 4, services_item)
         self.result_table.setItem(row_position, 5, os_item)
 
-        # Depuración: Verificar los datos insertados
-        print(f"Añadida IP: {ip}, Hostname: {data.get('hostname', 'Desconocido')}")
+        logger.info(f"Añadida IP: {ip}, Hostname: {data.get('hostname', 'Desconocido')}")
 
     def update_progress_bar(self, value):
-        """
-        Actualiza la barra de progreso.
-        """
         self.progress_bar.setValue(value)
 
     def scan_finished(self):
-        """
-        Rehabilita el botón de escaneo y habilita el botón de exportación si hay resultados.
-        """
         self.scan_button.setEnabled(True)
         self.export_button.setEnabled(self.result_table.rowCount() > 0)
         self.stop_button.setEnabled(False)
         QMessageBox.information(self, "Escaneo Completo", "El escaneo se ha completado.")
+        logger.info("Escaneo completado.")
 
     def filter_table(self, text):
-        """
-        Filtra las filas de la tabla según el texto ingresado.
-        """
         for row in range(self.result_table.rowCount()):
             match = False
             for column in range(self.result_table.columnCount()):
@@ -265,11 +256,9 @@ class IPScannerGUI(QWidget):
             self.result_table.setRowHidden(row, not match)
 
     def export_results(self):
-        """
-        Exporta los resultados de la tabla a un archivo CSV o XLSX.
-        """
         if self.result_table.rowCount() == 0:
             QMessageBox.warning(self, "Sin Datos", "No hay resultados para exportar.")
+            logger.warning("Intento de exportar sin datos.")
             return
 
         options = QFileDialog.Options()
@@ -306,13 +295,12 @@ class IPScannerGUI(QWidget):
                         ws.append(row_data)
                     wb.save(file_path)
                 QMessageBox.information(self, "Exportación Exitosa", f"Resultados exportados a {file_path}")
+                logger.info(f"Resultados exportados a {file_path}")
             except Exception as e:
                 QMessageBox.critical(self, "Error de Exportación", f"No se pudo exportar los resultados:\n{e}")
+                logger.error(f"Error al exportar resultados: {e}")
 
     def show_host_details(self, row, column):
-        """
-        Muestra una ventana emergente con detalles del host seleccionado.
-        """
         data = {
             'ip': self.result_table.item(row, 0).text(),
             'hostname': self.result_table.item(row, 1).text(),
@@ -324,9 +312,6 @@ class IPScannerGUI(QWidget):
         dialog.exec_()
 
     def parse_ports(self, ports_text, services_text):
-        """
-        Convierte los textos de puertos y servicios en un diccionario.
-        """
         ports = {}
         if ports_text != 'Ninguno' and services_text != 'Ninguno':
             ports_list = ports_text.split(', ')
@@ -336,9 +321,6 @@ class IPScannerGUI(QWidget):
         return ports
 
     def parse_os(self, os_text):
-        """
-        Convierte el texto de sistemas operativos en una lista de diccionarios.
-        """
         if os_text == 'Desconocido':
             return []
         os_list = []
@@ -351,72 +333,10 @@ class IPScannerGUI(QWidget):
         return os_list
 
     def stop_scan(self):
-        """
-        Detiene el proceso de escaneo.
-        """
         if hasattr(self, 'worker'):
             self.worker.stop()
             self.scan_button.setEnabled(True)
             self.stop_button.setEnabled(False)
             QMessageBox.information(self, "Escaneo Detenido", "El escaneo ha sido detenido.")
+            logger.info("Escaneo detenido por el usuario.")
 
-    def validate_ip_input(self, ip_input):
-        """
-        Valida si la entrada de IP es una dirección IP válida o un rango.
-        """
-        try:
-            if '-' in ip_input:
-                base_ip, end = ip_input.split('-')
-                base_ip = base_ip.strip()
-                end = end.strip()
-                # Validar base IP
-                ipaddress.ip_address(base_ip)
-                # Validar el último octeto
-                last_octet = base_ip.split('.')[-1]
-                if not last_octet.isdigit():
-                    return False
-                start = int(last_octet)
-                end = int(end)
-                if not (0 < end <= 255 and start <= end):
-                    return False
-            elif ',' in ip_input:
-                ips = ip_input.split(',')
-                for ip in ips:
-                    ipaddress.ip_address(ip.strip())
-            else:
-                ipaddress.ip_address(ip_input)
-            return True
-        except ValueError:
-            return False
-
-    def validate_ports_input(self, ports_input):
-        """
-        Valida si la entrada de puertos está en un formato válido.
-        """
-        # Permitir formatos como 22, 80,443, 1000-2000
-        ports = ports_input.split(',')
-        for port in ports:
-            port = port.strip()
-            if '-' in port:
-                start, end = port.split('-')
-                if not (start.isdigit() and end.isdigit()):
-                    return False
-                if not (0 < int(start) <= 65535 and 0 < int(end) <= 65535):
-                    return False
-                if int(start) > int(end):
-                    return False
-            else:
-                if not port.isdigit():
-                    return False
-                if not (0 < int(port) <= 65535):
-                    return False
-        return True
-
-def main():
-    app = QApplication(sys.argv)
-    gui = IPScannerGUI()
-    gui.show()
-    sys.exit(app.exec_())
-
-if __name__ == "__main__":
-    main()

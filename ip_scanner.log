@@ -1,0 +1,85 @@
+2024-10-03 16:59:49,175 - INFO - Aplicación iniciada.
+2024-10-03 17:00:30,916 - INFO - Hosts escaneados: ['192.168.110.1', '192.168.110.10', '192.168.110.100', '192.168.110.11', '192.168.110.146', '192.168.110.147', '192.168.110.15', '192.168.110.168', '192.168.110.202', '192.168.110.203', '192.168.110.204', '192.168.110.205', '192.168.110.207', '192.168.110.208', '192.168.110.240', '192.168.110.34', '192.168.110.37', '192.168.110.43', '192.168.110.6', '192.168.110.63', '192.168.110.67', '192.168.110.73', '192.168.110.75', '192.168.110.83', '192.168.110.86', '192.168.110.94', '192.168.110.99']
+2024-10-03 17:00:30,917 - INFO - Iniciando escaneo de 27 host(s).
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.1: {'ip': '192.168.110.1', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Datos del host 192.168.110.1: {'ip': '192.168.110.1', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - INFO - Añadida IP: 192.168.110.1, Hostname: Desconocido
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.10: {'ip': '192.168.110.10', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Datos del host 192.168.110.10: {'ip': '192.168.110.10', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.100: {'ip': '192.168.110.100', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Datos del host 192.168.110.100: {'ip': '192.168.110.100', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.11: {'ip': '192.168.110.11', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Ubiquiti Dream Machine Pro gateway (Linux 4.19)', 'accuracy': '100'}]}
+2024-10-03 17:00:30,917 - DEBUG - Datos del host 192.168.110.11: {'ip': '192.168.110.11', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Ubiquiti Dream Machine Pro gateway (Linux 4.19)', 'accuracy': '100'}]}
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.146: {'ip': '192.168.110.146', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Datos del host 192.168.110.146: {'ip': '192.168.110.146', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,917 - DEBUG - Información del host 192.168.110.147: {'ip': '192.168.110.147', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,919 - INFO - Añadida IP: 192.168.110.10, Hostname: Desconocido
+2024-10-03 17:00:30,919 - DEBUG - Datos del host 192.168.110.147: {'ip': '192.168.110.147', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,920 - INFO - Añadida IP: 192.168.110.100, Hostname: Desconocido
+2024-10-03 17:00:30,920 - DEBUG - Información del host 192.168.110.15: {'ip': '192.168.110.15', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,921 - INFO - Añadida IP: 192.168.110.11, Hostname: Desconocido
+2024-10-03 17:00:30,921 - DEBUG - Datos del host 192.168.110.15: {'ip': '192.168.110.15', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,924 - INFO - Añadida IP: 192.168.110.146, Hostname: Desconocido
+2024-10-03 17:00:30,925 - DEBUG - Información del host 192.168.110.168: {'ip': '192.168.110.168', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.168: {'ip': '192.168.110.168', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.202: {'ip': '192.168.110.202', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 2.6.9 - 2.6.30', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.202: {'ip': '192.168.110.202', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 2.6.9 - 2.6.30', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.203: {'ip': '192.168.110.203', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.203: {'ip': '192.168.110.203', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.204: {'ip': '192.168.110.204', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.204: {'ip': '192.168.110.204', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.205: {'ip': '192.168.110.205', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.205: {'ip': '192.168.110.205', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.207: {'ip': '192.168.110.207', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.207: {'ip': '192.168.110.207', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.208: {'ip': '192.168.110.208', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.208: {'ip': '192.168.110.208', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 3.2 - 4.14', 'accuracy': '100'}]}
+2024-10-03 17:00:30,927 - DEBUG - Información del host 192.168.110.240: {'ip': '192.168.110.240', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,927 - DEBUG - Datos del host 192.168.110.240: {'ip': '192.168.110.240', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.34: {'ip': '192.168.110.34', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.34: {'ip': '192.168.110.34', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.37: {'ip': '192.168.110.37', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.37: {'ip': '192.168.110.37', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.43: {'ip': '192.168.110.43', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.43: {'ip': '192.168.110.43', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.6: {'ip': '192.168.110.6', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.6: {'ip': '192.168.110.6', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.63: {'ip': '192.168.110.63', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.63: {'ip': '192.168.110.63', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.67: {'ip': '192.168.110.67', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.67: {'ip': '192.168.110.67', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.73: {'ip': '192.168.110.73', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.73: {'ip': '192.168.110.73', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.75: {'ip': '192.168.110.75', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.75: {'ip': '192.168.110.75', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.83: {'ip': '192.168.110.83', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.83: {'ip': '192.168.110.83', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.86: {'ip': '192.168.110.86', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.86: {'ip': '192.168.110.86', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'closed', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.94: {'ip': '192.168.110.94', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.94: {'ip': '192.168.110.94', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'filtered', 'service': 'ssh'}}, 'os': []}
+2024-10-03 17:00:30,928 - DEBUG - Información del host 192.168.110.99: {'ip': '192.168.110.99', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 4.15 - 5.19', 'accuracy': '100'}, {'name': 'OpenWrt 21.02 (Linux 5.4)', 'accuracy': '100'}, {'name': 'MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3)', 'accuracy': '100'}]}
+2024-10-03 17:00:30,928 - DEBUG - Datos del host 192.168.110.99: {'ip': '192.168.110.99', 'hostname': 'Desconocido', 'state': 'up', 'protocols': ['tcp'], 'ports': {22: {'state': 'open', 'service': 'ssh'}}, 'os': [{'name': 'Linux 4.15 - 5.19', 'accuracy': '100'}, {'name': 'OpenWrt 21.02 (Linux 5.4)', 'accuracy': '100'}, {'name': 'MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3)', 'accuracy': '100'}]}
+2024-10-03 17:00:30,928 - INFO - Añadida IP: 192.168.110.147, Hostname: Desconocido
+2024-10-03 17:00:30,929 - INFO - Añadida IP: 192.168.110.15, Hostname: Desconocido
+2024-10-03 17:00:30,931 - INFO - Añadida IP: 192.168.110.168, Hostname: Desconocido
+2024-10-03 17:00:30,934 - INFO - Añadida IP: 192.168.110.202, Hostname: Desconocido
+2024-10-03 17:00:30,936 - INFO - Añadida IP: 192.168.110.203, Hostname: Desconocido
+2024-10-03 17:00:30,939 - INFO - Añadida IP: 192.168.110.204, Hostname: Desconocido
+2024-10-03 17:00:30,942 - INFO - Añadida IP: 192.168.110.205, Hostname: Desconocido
+2024-10-03 17:00:30,945 - INFO - Añadida IP: 192.168.110.207, Hostname: Desconocido
+2024-10-03 17:00:30,949 - INFO - Añadida IP: 192.168.110.208, Hostname: Desconocido
+2024-10-03 17:00:30,952 - INFO - Añadida IP: 192.168.110.240, Hostname: Desconocido
+2024-10-03 17:00:30,955 - INFO - Añadida IP: 192.168.110.34, Hostname: Desconocido
+2024-10-03 17:00:30,958 - INFO - Añadida IP: 192.168.110.37, Hostname: Desconocido
+2024-10-03 17:00:30,962 - INFO - Añadida IP: 192.168.110.43, Hostname: Desconocido
+2024-10-03 17:00:30,965 - INFO - Añadida IP: 192.168.110.6, Hostname: Desconocido
+2024-10-03 17:00:30,968 - INFO - Añadida IP: 192.168.110.63, Hostname: Desconocido
+2024-10-03 17:00:30,971 - INFO - Añadida IP: 192.168.110.67, Hostname: Desconocido
+2024-10-03 17:00:30,975 - INFO - Añadida IP: 192.168.110.73, Hostname: Desconocido
+2024-10-03 17:00:30,978 - INFO - Añadida IP: 192.168.110.75, Hostname: Desconocido
+2024-10-03 17:00:30,981 - INFO - Añadida IP: 192.168.110.83, Hostname: Desconocido
+2024-10-03 17:00:30,985 - INFO - Añadida IP: 192.168.110.86, Hostname: Desconocido
+2024-10-03 17:00:30,988 - INFO - Añadida IP: 192.168.110.94, Hostname: Desconocido
+2024-10-03 17:00:30,992 - INFO - Añadida IP: 192.168.110.99, Hostname: Desconocido
+2024-10-03 17:01:00,753 - INFO - Escaneo completado.

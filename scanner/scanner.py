@@ -1,34 +1,23 @@
-# scanner.py
-
 import nmap
+import logging
+
+logger = logging.getLogger('ip_scanner')
 
 class Scanner:
     def __init__(self):
         self.nm = nmap.PortScanner()
 
     def scan_hosts(self, target, ports='22-443', arguments='-sV -O'):
-        """
-        Escanea los hosts en el target especificado con detección de servicios y OS.
-
-        :param target: Dirección IP o rango a escanear
-        :param ports: Puertos a escanear
-        :param arguments: Argumentos adicionales para Nmap
-        :return: Lista de hosts escaneados
-        """
         try:
             self.nm.scan(hosts=target, ports=ports, arguments=arguments)
-            return self.nm.all_hosts()
+            hosts = self.nm.all_hosts()
+            logger.info(f"Hosts escaneados: {hosts}")
+            return hosts
         except Exception as e:
-            print(f"Error al escanear: {e}")
+            logger.error(f"Error al escanear: {e}")
             return []
 
     def get_host_info(self, host):
-        """
-        Obtiene información detallada de un host.
-
-        :param host: Dirección IP del host
-        :return: Diccionario con información del host
-        """
         if host in self.nm.all_hosts():
             info = {
                 'ip': host,
@@ -46,13 +35,14 @@ class Scanner:
                         'state': port_info['state'],
                         'service': port_info['name']
                     }
-            # Detección de OS
             if 'osmatch' in self.nm[host]:
                 for osmatch in self.nm[host]['osmatch']:
                     info['os'].append({
                         'name': osmatch['name'],
                         'accuracy': osmatch['accuracy']
                     })
+            logger.debug(f"Información del host {host}: {info}")
             return info
         else:
+            logger.warning(f"El host {host} no está en la lista de hosts escaneados.")
             return None

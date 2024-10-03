@@ -1,10 +1,11 @@
-# main.py
-
 import sys
 from PyQt5.QtWidgets import QApplication
-from gui import IPScannerGUI
+from gui.gui import IPScannerGUI
+from utils.logger import setup_logger
 
 def main():
+    logger = setup_logger()
+    logger.info("Aplicación iniciada.")
     app = QApplication(sys.argv)
     gui = IPScannerGUI()
     gui.show()
